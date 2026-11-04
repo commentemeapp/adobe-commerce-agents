@@ -148,4 +148,4 @@ Abre un PR contra `dev` con Conventional Commits; la promoción a `main` es merg
 
 ---
 
-Hecho por [commente.me](https://commente.me) · hola@commente.me
+Hecho por [commente.me](https://www.commente.me) · hablecon@commente.me
