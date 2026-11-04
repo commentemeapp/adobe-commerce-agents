@@ -142,7 +142,7 @@ La versión vive en tres lugares: arriba en `.claude-plugin/marketplace.json`, e
 
 ## Contribuir · Licencia
 
-Abre un PR contra `dev` con Conventional Commits; la promoción a `qa` y `main` es merge de la rama entera. Un agente nuevo tiene que pasar la pregunta de [docs/agentes.md](docs/agentes.md#por-qué-no-hay-más-agentes): genera ruido intermedio que la conversación principal no necesita ver? Si no, no hace falta.
+Abre un PR contra `dev` con Conventional Commits; la promoción a `main` es merge de la rama entera `dev` (sin `qa` desde el 30/10/2026). Un agente nuevo tiene que pasar la pregunta de [docs/agentes.md](docs/agentes.md#por-qué-no-hay-más-agentes): genera ruido intermedio que la conversación principal no necesita ver? Si no, no hace falta.
 
 [MIT](LICENSE).
 
