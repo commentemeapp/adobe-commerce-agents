@@ -88,6 +88,28 @@ git clone --depth 1 https://github.com/AdobeDocs/commerce-operations.en.git ~/ad
 claude --add-dir ~/adobedocs
 ```
 
+### En otros agentes
+
+Los cinco agentes también funcionan en Gemini CLI, Codex, GitHub Copilot y Cursor. Cada versión se genera desde los archivos de
+Claude Code con `scripts/exportar.mjs`: cambian el frontmatter y los nombres de las herramientas, el texto es el
+mismo. Fuera de Claude Code no hay skills precargadas, así que cada agente empieza diciendo cuales cargar; se instalan
+con `npx skills add <repositorio> -a <agente>`.
+
+| Agente         | Instalación                                                                                                                                                                                                                               |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Gemini CLI     | `gemini extensions install https://github.com/commentemeapp/adobe-commerce-agents`: trae los cinco agentes y el servidor MCP (`adobe-commerce`)                                                                                           |
+| Codex          | Copia `adaptadores/codex/*.toml` a `~/.codex/agents/` y agrega el servidor MCP con los comandos de abajo                                                                                                                                  |
+| GitHub Copilot | Copia `adaptadores/copilot/*.agent.md` a `~/.copilot/agents/` o a `.github/agents/` del proyecto; el servidor MCP va en `~/.copilot/mcp-config.json`, con el mismo `mcpServers` de [`.mcp.json`](plugins/adobe-commerce-agents/.mcp.json) |
+| Cursor         | Copia `adaptadores/cursor/*.md` a `~/.cursor/agents/` o a `.cursor/agents/` del proyecto; el servidor MCP va en `~/.cursor/mcp.json`, con el mismo `mcpServers`                                                                           |
+
+```bash
+codex mcp add adobe-commerce -- npx -y @commenteme/adobe-commerce-mcp
+```
+
+En Copilot, las herramientas MCP van como `<servidor>/<herramienta>`; en Gemini CLI, como `mcp_<servidor>_<herramienta>`;
+en Codex y Cursor, el agente hereda las del servidor configurado. Cursor no tiene lista de herramientas por agente: los
+agentes que no escriben van con `readonly: true`.
+
 ### Actualizar y desinstalar
 
 | Acción      | Comando                                                         |
