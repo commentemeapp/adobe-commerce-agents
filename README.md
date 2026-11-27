@@ -1,13 +1,12 @@
-<p align="center">
-  <img src="assets/banner.png" width="100%" alt="adobe-commerce-agents · Cinco subagentes y el servidor MCP para desarrollar módulos de Adobe Commerce en PHP">
-</p>
+![adobe-commerce-agents · Cinco subagentes y el servidor MCP para desarrollar módulos de Adobe Commerce en PHP](.github/assets/banner.png)
 
 # adobe-commerce-agents
 
 **Cinco subagentes de Claude Code y el servidor MCP para desarrollar módulos de Adobe Commerce en PHP.**
 
-![version](https://img.shields.io/github/package-json/v/commentemeapp/adobe-commerce-agents/main?filename=plugins%2Fadobe-commerce-agents%2F.claude-plugin%2Fplugin.json&label=version&labelColor=005278&color=FFBD38)
-![license](https://img.shields.io/github/license/commentemeapp/adobe-commerce-agents?labelColor=005278&color=FFBD38)
+[![versión](https://badgen.net/github/tag/commentemeapp/adobe-commerce-agents?color=005278)](./CHANGELOG.md)
+[![licencia](https://badgen.net/github/license/commentemeapp/adobe-commerce-agents)](./LICENSE)
+[![último commit](https://badgen.net/github/last-commit/commentemeapp/adobe-commerce-agents/main)](https://github.com/commentemeapp/adobe-commerce-agents/commits/main)
 
 ## Instalación
 
@@ -144,15 +143,13 @@ npm ci
 node scripts/probar-mcp.mjs
 ```
 
-`scripts/verificar.sh` es el gate, el mismo que corre el CI: JSON válido, la misma versión en los tres manifiestos, la configuración del servidor MCP, el frontmatter de cada agente (nombre igual al archivo, `description`, tool `Skill` presente, sin `Write`, `Edit` ni `NotebookEdit`, máximo cuatro skills precargadas, prefijo MCP propio), que cada skill precargada exista en `commentemeapp/adobe-commerce-skills` o en `adobe/skills`, `claude plugin validate --strict`, Prettier, `bash -n` y una búsqueda de rastros que no deben llegar a un repositorio público. Sin red, la comprobación de las skills queda como aviso, nunca en verde.
+`scripts/verificar.sh` es el gate y corre en tu máquina antes de cada merge (no hay CI en GitHub): JSON válido, la misma versión en los tres manifiestos, la configuración del servidor MCP, el frontmatter de cada agente (nombre igual al archivo, `description`, tool `Skill` presente, sin `Write`, `Edit` ni `NotebookEdit`, máximo cuatro skills precargadas, prefijo MCP propio), que cada skill precargada exista en `commentemeapp/adobe-commerce-skills` o en `adobe/skills`, `claude plugin validate --strict`, Prettier, `bash -n` y una búsqueda de rastros que no deben llegar a un repositorio público. Sin red, la comprobación de las skills queda como aviso, nunca en verde.
 
 `scripts/probar-mcp.mjs` arranca el servidor por stdio y falla si una herramienta que un agente declara no existe, o si un agente declara una de scaffolding. Para probar contra un build local del servidor:
 
 ```bash
 ADOBE_COMMERCE_MCP=/ruta/a/adobe-commerce-mcp/build/index.js node scripts/probar-mcp.mjs
 ```
-
-El CI suma la búsqueda de secretos con gitleaks y el control del flujo de ramas, y prueba el servidor con `npx`.
 
 Para probar el plugin sin publicarlo:
 
@@ -168,6 +165,4 @@ Abre un PR contra `dev` con Conventional Commits; la promoción a `main` es merg
 
 [MIT](LICENSE).
 
----
-
-Hecho por [commente.me](https://www.commente.me) · hablecon@commente.me
+_Hecho con amor y café por [zeluizr](https://github.com/zeluizr) y con la ayuda de [Claude](https://claude.ai/referral/Cz_UimA0NQ) ☕_
